@@ -10,9 +10,9 @@ terraform {
 
   #backend block
   backend "s3" {
-    name = "devops-aws-manas"
+    bucket = "devops-aws-manas"
     key = "project-1/terraform.tfstate"
-    region = "us-east1"
+    region = "us-east-1"
   }
 
 }
