@@ -11,7 +11,7 @@ terraform {
   #backend block
   backend "s3" {
     bucket = "devops-aws-manas"
-    key = "project-1/terraform.tfstate"
+    key = "project-1/vpc/terraform.tfstate"
     region = "us-east-1"
   }
 
