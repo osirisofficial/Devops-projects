@@ -21,6 +21,9 @@ module "jenkins-ec2" {
   #public SG-id attached to public subnet in vp
   vpc_security_group_ids = [module.jenkins-sg.security_group_id]
 
+  #assign public ip to instance
+  associate_public_ip_address = true
+
   #userdata
   user_data = file("${path.module}/install-build-tool.sh")
 
