@@ -1,6 +1,6 @@
 # AWS EC2 Instance Terraform Module
 # Bastion Host - EC2 Instance that will be created in VPC Public Subnet
-module "public_bastion_instance" {
+module "jenkins-ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "6.0.2"
   # insert the 10 required variables here
