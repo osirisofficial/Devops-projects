@@ -17,6 +17,10 @@ module "vpc" {
   single_nat_gateway = true
   enable_nat_gateway = true
 
+#vpc dns parameter  : it shouled be assigned beacuse in public subnets ec2 instance we need public ip
+  enable_dns_hostnames = true
+  enable_dns_support = true
+
 
    tags = {
     Name        = "project1"
