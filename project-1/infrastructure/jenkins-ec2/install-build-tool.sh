@@ -14,7 +14,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
 # git
-sudo apt install
+sudo apt install git
 git --version
 
 # docker 
@@ -27,7 +27,7 @@ sudo usermod -aG docker ubuntu # to add this user to docker group  so it can exe
 newgrp docker 
 
 # sonar
-docker run --name sonar -p 9000:9000 sonarqube:lts-community
+docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
 # aws cli
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -44,23 +44,21 @@ sudo apt update
 sudo apt-get install terraform
 
 # Installing kubectl
-sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
-sudo chmod +x ./kubectl
-sudo mkdir -p $HOME/bin && sudo cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+mkdir -p $HOME/bin
+mv ./kubectl $HOME/bin/kubectl
+echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
+source ~/.bashrc
 
 # Installing Trivy
 # Ref - https://aquasecurity.github.io/trivy-repo/
-sudo tee /etc/yum.repos.d/trivy.repo << 'EOF'
-[trivy]
-name=Trivy repository
-baseurl=https://aquasecurity.github.io/trivy-repo/rpm/releases/$basearch/
-gpgcheck=1
-enabled=1
-gpgkey=https://aquasecurity.github.io/trivy-repo/rpm/public.key
-EOF
+sudo apt install wget apt-transport-https gnupg lsb-release -y
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt update
+sudo apt install trivy -y
 
-sudo yum -y update
-sudo yum -y install trivy
 
 # Intalling Helm
 # Ref - https://helm.sh/docs/intro/install/
