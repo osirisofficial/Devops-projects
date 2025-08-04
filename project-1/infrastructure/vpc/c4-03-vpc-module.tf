@@ -7,6 +7,7 @@ module "vpc" {
   azs             = var.vpc_azs
   private_subnets = var.vpc_private_subnets_cidr
   public_subnets  = var.vpc_public_subnets_cidr
+  map_public_ip_on_launch = true # it enable auto public_ip assign for public subnet
 
   #database subnet
   create_database_subnet_group = true
