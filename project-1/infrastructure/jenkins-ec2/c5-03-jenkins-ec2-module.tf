@@ -10,7 +10,7 @@ module "jenkins-ec2" {
   ami = "ami-0a7d80731ae1b2435"
   
   #instance type 
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
 
   #key pair
   key_name = "project-1-key"
@@ -25,7 +25,7 @@ module "jenkins-ec2" {
   associate_public_ip_address = true
 
   #userdata
-  user_data = file("${path.module}/install-build-tool.sh")
+ user_data_base64 = base64encode(file("${path.module}/install-build-tool.sh"))
 
   #tags
   tags = {

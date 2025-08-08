@@ -25,10 +25,10 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 sudo usermod -aG docker ubuntu # to add this user to docker group  so it can execute docker command
-newgrp docker 
+#newgrp docker 
 
 # sonar
-docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+#docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
 # aws cli
 sudo apt install unzip
