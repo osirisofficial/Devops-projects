@@ -28,4 +28,16 @@ module "vpc" {
     Terraform   = "true"
     Environment = "dev"
   }
+
+  public_subnet_tags = {
+    Name = "public_subnet" 
+  }
+
+  private_subnet_tags = {
+    Name = "private_subnet"
+  }
+
+  database_subnet_tags = {
+    Name = "database_subnets"
+  }
 }
