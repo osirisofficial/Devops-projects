@@ -28,3 +28,23 @@ IV. Automating Deployment with Jenkins CI/CD
             - Integrating Terraform and Kubernetes with the Jenkins pipeline.
 
             - Configuring continuous integration and deployment (CI/CD).
+
+if you have to deploy project perform this steps :
+
+            - stage 1 : deploy vpc "infrastructure/vpc/"
+
+            - stage 2 : deploy Jenkins ec2 server " infrastructure/jenkins-ec2/"
+
+            - stage 3 : login Jenkins-ec2 server
+
+            - stage 4 : check all tools we installed on jenkins-ec2 server
+
+            - stage 5 : configure Jenkins over browser using public_ip of jenkins-ec2:8080
+
+            - stage 6 : install aws credential and aws steps plugin in jenkins
+
+            - stage 7 : configure aws credentials in Jenkins
+
+            - stage 8 : deploy CI/CD pipeline on Jenkins (eks will be deployed using this pipeline)
+
+if you want check all steps in detailed how i made this project you can see project-1.pdf in same folder
