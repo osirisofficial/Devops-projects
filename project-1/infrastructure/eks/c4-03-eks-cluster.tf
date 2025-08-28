@@ -1,5 +1,6 @@
 
 module "eks" {
+  depends_on = [ aws_security_group.eks_public_access_sg ]
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
@@ -26,6 +27,8 @@ module "eks" {
       }
     }
   }
+
+  cluster_additional_security_group_ids = [aws_security_group.eks_public_access_sg.id]
 
   tags = {
     Environment = "dev"
