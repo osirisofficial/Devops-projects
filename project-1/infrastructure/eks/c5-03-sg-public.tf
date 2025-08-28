@@ -8,7 +8,7 @@ resource "aws_security_group" "eks_public_access_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["203.0.113.25/32"] # replace with your IP
+    cidr_blocks = [data.terraform_remote_state.vpc.outputs.vpc_cidr_block] # replace with your IP
   }
 
   egress {
