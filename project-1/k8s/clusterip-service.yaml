@@ -7,5 +7,5 @@ spec:
   selector:
     app: nginxDeploymentPod # selecting pods to expose
   ports:
-    - port: 80 # exposing port
+    - port: 30007 # exposing port
       targetPort: 80 # container port
