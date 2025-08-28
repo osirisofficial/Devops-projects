@@ -1,0 +1,14 @@
+project-1/infrastructure/vpc/.terraform/
+project-1/infrastructure/vpc/.terraform.lock.hcl
+*.tfstate
+
+project-1/infrastructure/jenkins-ec2/.terraform/
+project-1/infrastructure/jenkins-ec2/.terraform.lock.hcl
+
+project-1/infrastructure/private-key/
+
+project-1/infrastructure/eks/.terraform
+project-1/infrastructure/eks/.terraform.lock.hcl
+
+project-1/project-1-user_accessKeys.csv
+project-1/project-1-user_credentials.csv
