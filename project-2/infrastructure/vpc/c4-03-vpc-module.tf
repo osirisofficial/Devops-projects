@@ -19,10 +19,10 @@ module "vpc" {
  
   
   #database subnet
-  database_subnets    = var.database_subnet_cidr
+  /*database_subnets    = var.database_subnet_cidr
   database_subnet_names    = var.database_subnet_names
   create_database_subnet_group  = true
-  create_database_subnet_route_table = true
+  create_database_subnet_route_table = true*/
 
   
   //hostname & it support
