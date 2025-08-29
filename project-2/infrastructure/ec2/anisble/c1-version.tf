@@ -19,3 +19,13 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+
+# datasource  : to get vpc deatils from remote state
+data "terraform_remote_state" "vpc" {
+    backend = "s3"
+    config = {
+      bucket = "devops-aws-manas"
+      key = "project-2/vpc/terraform.tfstate"
+      region = "us-east-1"
+    }
+}

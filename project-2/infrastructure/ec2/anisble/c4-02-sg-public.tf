@@ -4,7 +4,7 @@ module "ansible_sg" {
 
   name        = "user-service"
   description = "Security group for user-service with custom ports open within VPC, and PostgreSQL publicly open"
-  vpc_id      = "vpc-12345678"
+  vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
 
   ingress_cidr_blocks      = ["0.0.0.0/0"]
   ingress_rules            = ["ssh-tcp"]
