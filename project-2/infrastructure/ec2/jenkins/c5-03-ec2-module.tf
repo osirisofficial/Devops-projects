@@ -3,7 +3,7 @@ module "jenkins-ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "6.0.2"
   # insert the 10 required variables here
-  name = "ansible_server"
+  name = "jenkins_server"
 
   
   ami = "ami-0a7d80731ae1b2435"
