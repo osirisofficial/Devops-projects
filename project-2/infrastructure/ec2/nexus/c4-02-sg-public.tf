@@ -2,7 +2,7 @@ module "sonar_nexus_sg" {
   source = "terraform-aws-modules/security-group/aws"
   version = "5.3.0"
 
-  name        = "sg-for-sonar-nexus"
+  name        = "for-sonar-nexus"
   description = "Security group for user-service with custom ports open within VPC, and PostgreSQL publicly open"
   vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
 
