@@ -9,7 +9,7 @@ module "sonar-nexus-ec2" {
   ami = "ami-0a7d80731ae1b2435"
   
   #instance type 
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
 
   #key pair
   key_name = "project-2-key"
