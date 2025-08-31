@@ -28,7 +28,7 @@ module "jenkins-ec2" {
 
   #tags
   tags = {
-    name = "ansible_server"
+    name = "jenkins_server"
     Terraform = "true"
     envrionment = "Dev"
   }
