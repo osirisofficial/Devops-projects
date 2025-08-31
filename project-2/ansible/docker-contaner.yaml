@@ -17,5 +17,6 @@
         image: "{{container_image}}"
         state: started
         detach: true
+        restart_policy: always
         ports:
           - "{{port_mapping}}"
