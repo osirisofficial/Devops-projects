@@ -1,0 +1,21 @@
+- hosts: "{host_name}"
+  become: yes
+  tasks:
+    - name: Install prerequisites (pip and Docker engine)
+      apt:
+        name: python3-pip
+      update_cache: yes
+      state: present
+
+    - name: Install Docker SDK for Python (needed by Ansible)
+      pip:
+        name: docker
+
+    - name: Run {{container_image}} container
+      community.docker.docker_container:
+        name: "my-{{container_name}}"
+        image: "{{container_image}}"
+        state: started
+        detach: true
+        ports:
+          - "{{port_mapping}}"
