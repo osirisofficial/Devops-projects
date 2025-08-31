@@ -15,7 +15,7 @@ module "sonar-nexus-ec2" {
   key_name = "project-2-key"
 
   #public subnet id to create instance their
-  subnet_id = data.terraform_remote_state.vpc.outputs.public_subnets[0]
+  subnet_id = data.terraform_remote_state.vpc.outputs.public_subnets[1]
 
   #public SG-id attached to public subnet in vp
   vpc_security_group_ids = [module.sonar_nexus_sg.security_group_id]
