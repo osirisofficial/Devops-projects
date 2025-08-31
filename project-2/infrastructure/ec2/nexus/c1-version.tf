@@ -10,7 +10,7 @@ terraform {
 
   backend "s3" {
     bucket = "devops-aws-manas"
-    key = "project-2/ec2/jenkins/terraform.tfstate"
+    key = "project-2/ec2/sonar-nexus/terraform.tfstate"
     region = "us-east-1"
   }
 
