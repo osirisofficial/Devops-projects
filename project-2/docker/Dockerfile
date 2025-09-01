@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jre-alpine AS BASE
 
 WORKDIR /APP
 
-COPY ../full-stack-app/target/*jar app.jar
+COPY ../full-stack-app/target/*.jar app.jar
 
 EXPOSE 8080
 
