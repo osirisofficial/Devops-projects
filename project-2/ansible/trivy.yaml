@@ -1,0 +1,32 @@
+- hosts: "{{host_name}}"
+  become: yes
+  tasks:
+    - name: install pre-requists
+      apt:
+        name:
+          - wget
+          - apt-transport-https
+          - gnupg
+          - lsb-release
+      state: present
+      update_cache: yes
+
+    - name: Add Trivy GPG key
+      shell: wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | tee /usr/share/keyrings/trivy.gpg > /dev/null
+      args:
+        creates: /usr/share/keyrings/trivy.gpg
+
+    - name: Add Trivy APT repository
+      apt_repository:
+        repo: "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb {{ ansible_lsb.codename }} main"
+        filename: trivy
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Trivy
+      apt:
+        name: trivy
+        state: present
