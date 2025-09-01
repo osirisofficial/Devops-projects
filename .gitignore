@@ -12,3 +12,24 @@ project-1/infrastructure/eks/.terraform.lock.hcl
 
 project-1/project-1-user_accessKeys.csv
 project-1/project-1-user_credentials.csv
+
+
+project-2/infrastructure/private-key/
+
+project-2/infrastructure/vpc/.terraform/
+project-2/infrastructure/vpc/.terraform.lock.hcl
+
+project-2/infrastructure/ec2/anisble/.terraform/
+project-2/infrastructure/ec2/anisble/.terraform.lock.hcl
+
+project-2/infrastructure/ec2/jenkins/.terraform/
+project-2/infrastructure/ec2/jenkins/.terraform.lock.hcl
+
+project-2/infrastructure/ec2/monitoring/.terraform/
+project-2/infrastructure/ec2/monitoring/.terraform.lock.hcl
+
+project-2/infrastructure/ec2/nexus/.terraform/
+project-2/infrastructure/ec2/nexus/.terraform.lock.hcl
+
+project-2/infrastructure/ec2/sonarqube/.terraform/
+project-2/infrastructure/ec2/sonarqube/.terraform.lock.hcl
