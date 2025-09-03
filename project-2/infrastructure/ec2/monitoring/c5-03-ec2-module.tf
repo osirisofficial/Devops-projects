@@ -1,0 +1,36 @@
+
+module "monitoring-ec2" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "6.0.2"
+  # insert the 10 required variables here
+  name = "monitoring_server"
+
+  
+  ami = "ami-0a7d80731ae1b2435"
+  
+  #instance type 
+  instance_type = "t2.medium"
+
+  #key pair
+  key_name = "project-2-key"
+
+  #public subnet id to create instance their
+  subnet_id = data.terraform_remote_state.vpc.outputs.public_subnets[1]
+
+  #public SG-id attached to public subnet in vp
+  vpc_security_group_ids = [module.monitoring_sg.security_group_id]
+
+  #assign public ip to instance
+  associate_public_ip_address = true
+
+  #userdata
+ #user_data_base64 = base64encode(file("${path.module}/install-build-tool.sh"))
+
+  #tags
+  tags = {
+    name = "monitoring_server"
+    Terraform = "true"
+    envrionment = "Dev"
+  }
+
+}
