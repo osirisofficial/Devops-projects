@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogapp
+  label: blogapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: blogAppPod
+  template:
+    metadata:
+      labels:
+        pod: blogAppPod
+    spec:
+      containers:
+        - name: blogAppPodcontainer
+          image: manasss0508/full-stack-blog-app-manas:latest
+          ports:
+            containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: forBlogApp
+spec:
+  type: ClusterIP
+  selector:
+    pod: blogAppPod
+  ports:
+    - port: 30007
+      targetPort: 8080
