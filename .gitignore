@@ -33,3 +33,6 @@ project-2/infrastructure/ec2/nexus/.terraform.lock.hcl
 
 project-2/infrastructure/ec2/sonarqube/.terraform/
 project-2/infrastructure/ec2/sonarqube/.terraform.lock.hcl
+
+project-2/infrastructure/eks/.terraform/
+project-2/infrastructure/eks/.terraform.lock.hcl
