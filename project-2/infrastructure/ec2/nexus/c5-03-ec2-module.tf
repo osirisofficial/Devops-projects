@@ -26,6 +26,13 @@ module "sonar-nexus-ec2" {
   #userdata
  #user_data_base64 = base64encode(file("${path.module}/install-build-tool.sh"))
 
+ #root volume
+ root_block_device = {
+    encrypted  = true
+    type       = "gp2"
+    size       = 20
+  }
+
   #tags
   tags = {
     name = "sonar_nexus_server"
