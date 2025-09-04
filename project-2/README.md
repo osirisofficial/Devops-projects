@@ -119,3 +119,159 @@ Pipeline Stages:
   ![alt text](image-4.png)
 
 - ✅ Grafana Dashboard
+
+==========================================================
+
+🚀 Project Implementation Steps
+
+This section documents the step-by-step implementation of the project.
+
+🔹 1. Git & AWS Setup
+
+1. Created a Git repository for the project.
+
+2. Created an AWS Access Key and an S3 bucket for Terraform state storage.
+
+🔹 2. Infrastructure Provisioning (Terraform)
+
+1. Created a VPC.
+
+2. Provisioned 3 EC2 instances:
+
+   - Ansible EC2 (also used for EKS access).
+
+   - Jenkins EC2.
+
+   - SonarQube & Nexus EC2.
+
+3. Later created another EC2 instance for Monitoring Stack (Prometheus, Grafana, Blackbox Exporter).
+
+4. Created Security Groups for public access to eks cluster
+
+5. Provisioned an EKS Cluster.
+
+🔹 3. Configuration Management (Ansible)
+
+1. Installed Ansible on Ansible EC2 and connected other EC2 nodes.
+
+2. Created playbooks for:
+
+- Installing Docker.
+
+- Installing Jenkins.
+
+- Running Docker containers (for SonarQube & Nexus).
+
+- Installing Trivy.
+
+- Installing Maven.
+
+3. Applied playbooks:
+
+- Installed Docker on all EC2 instances.
+
+- Installed Jenkins on Jenkins EC2.
+
+- Deployed SonarQube & Nexus as containers on their EC2.
+
+- Installed Trivy and Maven on Jenkins EC2.
+
+🔹 4. SonarQube & Nexus Setup
+
+1. Set up SonarQube in browser.
+
+2. Installed SonarQube Scanner plugin in Jenkins.
+
+3. Configured SonarQube server in Jenkins.
+
+4. Set up Nexus in browser.
+
+5. Connected Nexus to Jenkins:
+
+- Added maven-releases repo link to project’s pom.xml.
+
+- Installed Nexus plugin in Jenkins.
+
+- Configured Nexus credentials in Jenkins → Managed Files.
+
+🔹 5. Jenkins Pipeline (CI/CD)
+
+1. Added DockerHub credentials to Jenkins.
+
+2. Created CI/CD pipeline until artifact publishing to Nexus.
+
+3. Created a Dockerfile for application.
+
+4. Extended pipeline to:
+
+- Build Docker image.
+
+- Run Trivy image scan.
+
+- Push Docker image to DockerHub.
+
+5. Configured pipeline stages:
+
+- Git checkout.
+
+- mvn test.
+
+- trivy fs scan.
+
+- SonarQube analysis.
+
+- mvn package.
+
+- Deploy to Nexus (mvn deploy).
+
+- Docker build & Trivy image scan.
+
+- Push image to DockerHub.
+
+🔹 6. EKS Configuration
+
+1. On Ansible EC2:
+
+- Installed AWS CLI.
+
+- Installed kubectl.
+
+- Configured AWS access key with CLI.
+
+- Configured EKS cluster via CLI.
+
+- Gave IAM user access to EKS.
+
+2. Installed Nginx Ingress Controller on EKS.
+
+3. Created namespace webapp
+
+4. Created RBAC service account for Jenkins to access EKS.
+
+5. Deployed application on EKS:
+
+- Deployment YAML.
+
+- ClusterIP service YAML.
+
+- Ingress YAML.
+
+6. Extended Jenkins pipeline with Kubernetes deployment stage.
+
+🔹 7. Monitoring & Observability
+
+1. Provisioned Monitoring EC2 (via Terraform).
+
+2. Installed on Monitoring EC2:
+
+- Blackbox Exporter.
+
+- Prometheus.
+
+- Grafana.
+
+3. Configured Prometheus job to scrape webapp metrics via Blackbox Exporter.
+
+4. Accessed Grafana in browser.
+
+5. Created Grafana dashboards with Prometheus as datasource to visualize application metrics.
