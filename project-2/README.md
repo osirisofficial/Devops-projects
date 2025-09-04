@@ -275,3 +275,41 @@ This section documents the step-by-step implementation of the project.
 4. Accessed Grafana in browser.
 
 5. Created Grafana dashboards with Prometheus as datasource to visualize application metrics.
+
+==================================================
+📌 Resume Entry Example
+
+DevOps Project – CI/CD Pipeline with AWS, Kubernetes, Monitoring
+(Personal Project | GitHub Link)
+
+- Provisioned AWS infrastructure using Terraform (VPC, EC2, Security Groups, EKS).
+
+- Configured Ansible for automated provisioning of Jenkins, Docker, Maven, Trivy, SonarQube, and Nexus across EC2 instances.
+
+- Designed a Jenkins CI/CD pipeline integrated with:
+
+  - GitHub (source control).
+
+  - Maven (build & test).
+
+  - SonarQube (code quality analysis).
+
+  - Trivy (filesystem & container image scanning).
+
+  - Nexus Repository (artifact management).
+
+  - Docker & DockerHub (containerization & image registry).
+
+  - Kubernetes (EKS) (deployment with Ingress).
+
+- Implemented RBAC in EKS to securely provide Jenkins cluster access.
+
+- Installed Nginx Ingress Controller and deployed workloads in a dedicated namespace
+
+- Built an end-to-end CI/CD pipeline: Git Checkout → Test → SonarQube → Trivy → Package → Nexus → Docker Build → Image Scan → DockerHub → Deploy to EKS.
+
+- Set up Monitoring & Observability stack on a separate EC2:
+
+  - Blackbox Exporter + Prometheus + Grafana to monitor application endpoints and visualize metrics.
+
+- Outcome: Fully automated, secure, and monitored CI/CD pipeline demonstrating real-world DevOps workflows.
