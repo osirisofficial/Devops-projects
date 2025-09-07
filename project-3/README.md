@@ -1,6 +1,7 @@
 In This Project, we are Developing and Deploying a application on EKS using Docker and AWS Developers Tools.
+due to some issue aws has stoped codecommit service, so for source code mangement we will use github
 
-- CodeCommit: For Source Code Management
+- github: For Source Code Management
 
 - CodeBuild: For building and testing our code in a serverless fashion
 
@@ -18,23 +19,47 @@ In This Project, we are Developing and Deploying a application on EKS using Dock
 
 - EKS for Deployment
 
-Create IAM User:
+Create and setup github repo :
 
-- Go to the IAM console and create a user.
+- Create a repository
+  ![alt text](image-3.png)
 
-- Click on Create User -> User details -> Next.
+- Steup git repo localy
 
-- Add Permission for full access to CodeCommit.
-  ![alt text](image.png)
+```
+git clone https://github.com/osirisofficial/eks-app.git
+```
 
-- Click on Create for the user.
+- Copy project source-code to repo
 
-- create access key for user to interact with cli
-  ![alt text](image-1.png)
+- And to do git push
+  ![alt text](image-4.png)
 
-- configure access on aws-cli
+setupping ECR repository :
 
-  ```
-  aws configure
+- go to ECR dashboard on aws-console
 
-  ```
+- create a repository
+  ![alt text](image-5.png)
+  ![alt text](image-6.png)
+
+- steps to push docker image to ECR repo
+  ![alt text](image-7.png)
+
+steupping up codebuild :
+
+- go to codebuild dashboard
+
+- click on `create project`
+  ![alt text](image-8.png)
+
+- follow the steps
+  ![alt text](image-9.png)
+  ![alt text](image-14.png)
+  ![alt text](image-11.png)
+  ![alt text](image-12.png)
+  ![alt text](image-13.png)
+
+- CodeBuild will need buildspec.yml to build a project.
+
+- The buildspec.yml file is in the repository root folder.
