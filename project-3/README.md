@@ -1,4 +1,5 @@
-In This Project, we are Developing and Deploying a application on EKS using Docker and AWS Developers Tools.
+# [In This Project, we are Developing and Deploying a application on EKS using Docker and AWS Developers Tools.]
+
 due to some issue aws has stoped codecommit service, so for source code mangement we will use github
 
 - github: For Source Code Management
@@ -19,7 +20,7 @@ due to some issue aws has stoped codecommit service, so for source code mangemen
 
 - EKS for Deployment
 
-**Create and setup github repo :**
+## [**Create and setup github repo :**]
 
 - Create a repository
   ![alt text](image-3.png)
@@ -35,7 +36,7 @@ git clone https://github.com/osirisofficial/eks-app.git
 - And to do git push
   ![alt text](image-4.png)
 
-**setupping ECR repository :**
+## [**setupping ECR repository :**]
 
 - go to ECR dashboard on aws-console
 
@@ -46,7 +47,7 @@ git clone https://github.com/osirisofficial/eks-app.git
 - steps to push docker image to ECR repo
   ![alt text](image-7.png)
 
-**steupping up codebuild :**
+## [**steupping up codebuild :**]
 
 - go to codebuild dashboard
 
