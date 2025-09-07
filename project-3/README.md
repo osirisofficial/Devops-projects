@@ -34,6 +34,7 @@ Create IAM User:
 
 - configure access on aws-cli
 
-  ```aws configure
+  ```
+  aws configure
 
   ```
