@@ -169,3 +169,30 @@ git clone https://github.com/osirisofficial/eks-app.git
 ## **output**
 
 ![alt text](image-33.png)
+
+## **Resume**
+
+- ## DevOps Project – CI/CD Pipeline with AWS CodePipeline (Personal Project | GitHub Link)
+
+- Provisioned AWS infrastructure (EC2, IAM Roles, Security Groups) to host application and deployment agents.
+
+- Configured GitHub as the source code repository, enabling version control and webhook triggers for build automation.
+
+- Designed and implemented CI/CD pipeline with AWS services:
+
+  - CodePipeline → Orchestrated end-to-end CI/CD workflow.
+
+  - Amazon ECR → Stored and managed versioned Docker images for deployments
+
+  - CodeBuild → Automated build, unit testing, and artifact packaging.
+
+  - CodeDeploy → Performed blue/green deployments across EC2 instances with zero downtime.
+
+  - Systems Manager Parameter Store → Secured and managed sensitive credentials (API keys, passwords).
+
+- End-to-End Automated Workflow:
+  GitHub Commit → CodePipeline Trigger → CodeBuild (Compile & Test & push image to docker) → CodeDeploy (Deployment to EC2).
+
+- Implemented monitoring and logging with AWS CloudWatch to track pipeline executions, deployment logs, and application health.
+
+- Outcome: Delivered a containerized, secure, and fully automated CI/CD pipeline achieving faster release cycles, consistent deployments, and enhanced security through centralized secrets management.
