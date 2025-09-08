@@ -68,13 +68,16 @@ git clone https://github.com/osirisofficial/eks-app.git
 ## **using system manager to store secret :**
 
 - in app we are using TMDB API, we will store that key in system manager
+
   ![alt text](image-15.png)
   ![alt text](image-16.png)
 
 - also give permission to access system manager to IAM-role assigned to codeBuild
+
   ![alt text](image-17.png)
 
 - as we using ECR to store docker image , we need to provide access of ECR to IAM-role assigned to codeBuild
+
   ![alt text](image-18.png)
 
 ## **create and setup codeDeploy :**
@@ -82,11 +85,12 @@ git clone https://github.com/osirisofficial/eks-app.git
 - go to codedeploy dashboard
 
 - create a application
+
   ![alt text](image-19.png)
 
 - create ec2 instance , for agent of codeDeploy
 
-  - #### **create a role for EC2 to access S3 and codeDeploy**
+  - ### **create a role for EC2 to access S3 and codeDeploy**
 
   - got to IAM dashboard -> create role -> service role -> EC2
 
@@ -102,46 +106,66 @@ git clone https://github.com/osirisofficial/eks-app.git
 
   - create role
 
-  - #### **create ec2 with role attached **
+  - ### **create ec2 with role attached**
 
-        ![alt text](image-21.png)
+    ![alt text](image-21.png)
+    ![alt text](image-22.png)
+    ![alt text](image-23.png)
 
-        - attach that role here
-          ![alt text](image-22.png)
+- ### **create a role for Codedeploy**
 
-        ![alt text](image-23.png)
+- add this permissions :
 
-- #### **create a role for Codedeploy**
-
-  - add this permissions :
-    1. awscodedeployrole
+  1. awscodedeployrole
 
 - create appsec.yaml in root directory and push it repo
 
   - start.sh
+
     ![alt text](image-28.png)
 
   - stop.sh
+
     ![alt text](image-29.png)
 
   - appspec.yml
+
     ![alt text](image-30.png)
 
 - setup deployment group in codeDeploy application
+
   ![alt text](image-24.png)
   ![alt text](image-25.png)
 
 - click on "create deploymnet"
+
   ![alt text](image-26.png)
   ![alt text](image-27.png)
 
-- ## **Codebuild history**
+## **create and setup codepipeline**
 
-  ![alt text](image-31.png)
+- go to codepipeline dashboard
 
-- ## **codedeploy**
+- click on "create pipeline"
 
-  ![alt text](image-32.png)
+![alt text](image-34.png)
 
-- ## **output**
-  ![alt text](image-33.png)
+- follow steps
+  ![alt text](image-35.png)
+  ![alt text](image-36.png)
+  ![alt text](image-37.png)
+  ![alt text](image-38.png)
+
+- click on create pipeline
+
+## **Codebuild history**
+
+![alt text](image-31.png)
+
+## **codedeploy**
+
+![alt text](image-32.png)
+
+## **output**
+
+![alt text](image-33.png)
