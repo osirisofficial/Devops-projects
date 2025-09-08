@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  parameter-store:
+    KEY: /eks-app/api-key/tmdb
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - node --version
+      - echo "installed node "
+    # steps:
+  pre_build:
+    commands:
+      - rm -rf eks-app
+      - git clone -b main https://github.com/osirisofficial/eks-app.git
+      - cd eks-app
+      - npm install
+      - echo "dependencies installed"
+  build:
+    commands:
+      - docker build -t 783764591716.dkr.ecr.us-east-1.amazonaws.com/eks-app:latest . --build-arg TMDB_V3_API_KEY=$KEY
+  post_build:
+    commands:
+      - echo "waiting right now"
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 783764591716.dkr.ecr.us-east-1.amazonaws.com
+      - docker push 783764591716.dkr.ecr.us-east-1.amazonaws.com/eks-app:latest
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "./"
+  name: build-artifact-name
+  discard-paths: no
