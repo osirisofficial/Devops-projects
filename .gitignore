@@ -38,3 +38,9 @@ project-2/infrastructure/eks/.terraform/
 project-2/infrastructure/eks/.terraform.lock.hcl
 
 project-3/private-key/
+
+project-4/private-key/
+project-4/*/.terraform/
+project-4/*/.terraform.lock.hcl
+project-4/*/*/.terraform/
+project-4/*/*/.terraform.lock.hcl
