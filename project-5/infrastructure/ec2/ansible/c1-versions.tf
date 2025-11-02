@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "manas-devops-projects"
+    bucket = "manas-devops-projects-1"
     key = "project-5/ec2/ansible/terraform.tfstate"
     region = "us-east-1"
   }
@@ -21,7 +21,7 @@ provider "aws" {
 data "terraform_remote_state" "vpc" {
     backend = "s3"
     config = {
-      bucket = "manas-devops-projects"
+      bucket = "manas-devops-projects-1"
       key = "project-5/vpc/terraform.tfstate"
       region = "us-east-1"
     }

@@ -18,7 +18,4 @@ module "ansible-ec2" {
     size       = 30
 
   }
-
-
-
 }
