@@ -44,3 +44,12 @@ project-4/*/.terraform/
 project-4/*/.terraform.lock.hcl
 project-4/*/*/.terraform/
 project-4/*/*/.terraform.lock.hcl
+
+project-5/*/private-key/
+project-5/*/.terraform/
+project-5/*/.terraform.lock.hcl
+project-5/*/*/.terraform/
+project-5/*/*/.terraform.lock.hcl
+project-5/*/*/*/.terraform/
+project-5/*/*/*/.terraform.lock.hcl
+project-5/infrastructure/ec2/ci-cd/ansible-node-setup.sh
