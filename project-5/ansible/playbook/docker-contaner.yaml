@@ -1,11 +1,11 @@
-- hosts: "{host_name}"
+- hosts: "{{host_name}}"
   become: yes
   tasks:
     - name: Install prerequisites (pip and Docker engine)
       apt:
         name: python3-pip
-      update_cache: yes
-      state: present
+        update_cache: yes
+        state: present
 
     - name: Install Docker SDK for Python (needed by Ansible)
       pip:
