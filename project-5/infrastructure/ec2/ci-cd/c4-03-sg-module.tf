@@ -6,6 +6,7 @@ module "ci_cd_sg" {
   description = "Security group for ci-cd ec2"
   vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
   ingress_rules = ["ssh-tcp"]
+  ingress_cidr_blocks = ["0.0.0.0/0"]
 
   ingress_with_cidr_blocks = [{
       from_port        = 8080
