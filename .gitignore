@@ -53,3 +53,4 @@ project-5/*/*/.terraform.lock.hcl
 project-5/*/*/*/.terraform/
 project-5/*/*/*/.terraform.lock.hcl
 project-5/infrastructure/ec2/ci-cd/ansible-node-setup.sh
+project-5/screenshots/
