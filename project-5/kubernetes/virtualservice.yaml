@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: medicure-route
+spec:
+  gateways:
+    - my-gateway
+  hosts:
+    - "*"
+  http:
+    - match:
+        - uri:
+            prefix: "/app"
+      rewrite:
+            uri: "/"
+      route: 
+        - destination: 
+            host: medicure-cluster-ip
+            port:
+              number: 30007

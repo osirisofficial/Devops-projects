@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medicure-deployment
+  labels:
+    app: medicureDeployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: medicurePod
+  template:
+    metadata:
+      labels:
+         app: medicurePod
+    spec:
+      containers:
+        - name: medicure-container
+          image: manasss0508/medicure
+          ports:
+            - containerPort: 8080
+    
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: medicure-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    app: medicurePod
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: medicure-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: medicurePod
+  ports:
+    - port: 8080
+      targetPort: 8080
